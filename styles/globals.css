@@ -1,32 +1,31 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
 
 @font-face {
-  font-family: 'Nunito-Standard';
-  src: url('/assets/fonts/Nunito-Regular.ttf') format('truetype');
+
 }
 
 @font-face {
-  font-family: 'Nunito-light';
-  src: url('/assets/fonts/Nunito-Light.ttf') format('truetype');
+ 
 }
 
 @font-face {
-  font-family: 'Nunito-Bold';
-  src: url('/assets/fonts/Nunito-Bold.ttf') format('truetype');
+
 }
 
 .nunito-standard {
-  font-family: 'Nunito-Standard';
+  font-family: 'Nunito-Standard',sans-serif;
 }
 
 .nunito-light {
-  font-family: 'Nunito-light';
+  font-family: 'Nunito-light',sans-serif;
 }
 
 .nunito-bold {
-  font-family: 'Nunito-Bold';
+  font-family: 'Nunito-Bold',sans-serif;
   font-weight: 700;
 }
 
@@ -48,6 +47,38 @@ a {
 .text-bold{
   font-family: 'Ny';
 }
+
+.aboutbanner{
+  background-position:center;
+  background: url('/public/assets/images/banner_1.jpeg');
+  background-size: cover;
+}
+
+.bg-zeo-one{
+  background-color: #0095d9;
+}
+
+.bg-zeo-two{
+  background-color: #b6d201;
+}
+
+.bg-zeo-three{
+  background-color: #364c61;
+}
+
+.bg-zeo-four{
+  background-color: #4e7093;
+}
+
+.text-zeo-one{
+  color:#0095d9;
+}
+.text-zeo-two{
+  color:#b6d201;
+}
+.text-zeo-three{
+  color:#364c61;
+}
 /*
 @media (prefers-color-scheme: dark) {
   html {
@@ -58,3 +89,11 @@ a {
     background: black;
   }
 }*/
+
+.mobile-hidden{}
+
+@media(max-width:480px){
+    .mobile-hidden{
+        display: none;
+    }
+}

@@ -6,7 +6,7 @@
     right: 25px;
     border-radius: 50%;
     display: block;
-    z-index: 0;
+    z-index: 1;
 }
 
 .miniElement{
@@ -17,7 +17,7 @@
     right: 20rem;
     border-radius: 50%;
     display: block;
-    z-index: 0;
+    z-index: 1;
 }
 
 .imageAbout{
@@ -25,3 +25,25 @@
     z-index: 200;
 }
 
+.aboutbanner{
+    background-position:center;
+   
+    background-size: cover;
+    height: 460px;
+  }
+
+.mobile-hidden{}
+
+
+
+@media(max-width:480px){
+    .mobile-hidden{
+        display: none;
+    }
+    .aboutbanner{
+        background-position:center;
+        background: url('/assets/images/banner_1.jpeg');
+        background-size: cover;
+        height:356px;
+      }
+}

@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  trailingSlash: true,
+  output:'export',
+  assetPrefix:'.',
+  images: {
+    loader: 'custom',
+    loaderFile: './my-loader.ts',
+  },
+  //reactStrictMode: true,
+  //swcMinify: true,
 }
 
 module.exports = nextConfig

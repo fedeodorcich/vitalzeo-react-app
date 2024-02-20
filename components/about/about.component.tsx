@@ -1,34 +1,90 @@
 import Image from "next/image";
 import NavbarComponent from "../navbar/navbar.component";
 import style from "./about.module.css";
+import Slider from "react-slick";
+import { useEffect, useState } from "react";
+import BannerComponent from "../banner/banner.component";
+import LoadingComponent from "../loading/loading.component";
 
 const AboutComponent = () => {
+  const [tamanioPantalla, setTamanioPantalla] = useState({
+    ancho: typeof window !== "undefined" && window.innerWidth,
+    alto: typeof window !== "undefined" && window.innerHeight,
+  });
+
+  const [loading, setLoading] = useState(true);
+  const [data,setData] = useState<string []>()
+
+  
+
+  const imageArray = [
+    "./assets/images/desktop/banner_1_desktop.png",
+    "./assets/images/desktop/banner_2_desktop.png",
+    "./assets/images/desktop/banner_3_desktop.png",
+    "./assets/images/desktop/banner_4_desktop.png",
+    "./assets/images/desktop/banner_6_desktop.png",
+    "./assets/images/desktop/banner_7_desktop.png",
+  ];
+
+  const imageArrayMobile = [
+    "./assets/images/mobile/banner_1_mobile.png",
+    "./assets/images/mobile/banner_2_mobile.png",
+    "./assets/images/mobile/banner_3_mobile.png",
+    "./assets/images/mobile/banner_4_mobile.png",
+    "./assets/images/mobile/banner_6_mobile.png",
+    "./assets/images/mobile/banner_7_mobile.png",
+  ];
+  useEffect(() => {
+    console.log(tamanioPantalla.ancho)
+    if (tamanioPantalla.ancho<=450) {
+      setData(imageArrayMobile)
+
+      setLoading(false);
+    }else{
+      setData(imageArray)
+      
+      setLoading(false);
+    }
+    console.log(data)
+  }, []);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000
+  };
+
+  const getData = () => {
+    if (tamanioPantalla.ancho <= 450) {
+      return data.map((image, index) => (
+        <BannerComponent
+          bannerData={image}
+          key={index}
+        ></BannerComponent>
+      ));
+    } else {
+      return data.map((imagex, index) => (
+        <BannerComponent
+          bannerData={imagex}
+          key={index}
+        ></BannerComponent>
+      ));
+    }
+  };
+
   return (
     <>
-      <div className="grid grid-cols-3 gap-4 bg-teal-600 rounded-3xl mt-7 px-3 py-10 overflow-hidden relative">
-        <h1 className="nunito-bold text-5xl text-white">VitalZEO</h1>
-        <div className="col-span-3"></div>
-
-        <div className="container mx-auto max-w-screen-lg mt-7 pl-8 col-span-2">
-          <p className="nunito-light text-2xl text-white text-4xl nunito-bold">
-            Nos especializamos en la venta de minerales cuidadosamente
-            seleccionados para brindar beneficios significativos a nuestros
-            clientes.
-          </p>
+      {!loading && (
+        <div className="mt-10">
+          <Slider {...settings}>
+            {getData()}
+          </Slider>
         </div>
-        <div className="">
-          
-          <Image
-            src={"/assets/images/product.png"}
-            width={300}
-            height={300}
-            alt="zeolita"
-            className={style.imageAbout}
-          />
-        </div>
-        <div className={style.element + " bg-teal-200"}></div>
-        <div className={style.miniElement + " bg-teal-100"}></div>
-      </div>
+      )}
     </>
   );
 };
