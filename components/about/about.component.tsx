@@ -24,6 +24,7 @@ const AboutComponent = () => {
     "./assets/images/desktop/banner_4_desktop.png",
     "./assets/images/desktop/banner_6_desktop.png",
     "./assets/images/desktop/banner_7_desktop.png",
+    "./assets/images/desktop/banner_8_desktop.jpg",
   ];
 
   const imageArrayMobile = [
@@ -33,6 +34,7 @@ const AboutComponent = () => {
     "./assets/images/mobile/banner_4_mobile.png",
     "./assets/images/mobile/banner_6_mobile.png",
     "./assets/images/mobile/banner_7_mobile.png",
+    "./assets/images/mobile/banner_8_mobile.jpg",
   ];
   useEffect(() => {
     console.log(tamanioPantalla.ancho)

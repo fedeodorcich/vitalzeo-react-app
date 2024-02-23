@@ -2,7 +2,7 @@ const CardComponent = ({product,openAlert}) => {
   return (
     <>
       <div className="rounded-3xl bg-slate-100 p-4 mx-4 mb-3">
-        <div className="bg-teal-200 m-0 rounded-3xl">
+        <div className="bg-white m-0 rounded-3xl">
            <img className="rounded-3xl" src={'.'+product.image} alt="" />
         </div>
        
