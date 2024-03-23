@@ -5,7 +5,6 @@ const EcoComponent = () => {
  
 
   const imageArray = [
-    "./assets/images/eco_1.png",
     "./assets/images/eco_2.jpeg",
     
   ];
