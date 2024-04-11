@@ -7,11 +7,9 @@ const CardComponent = ({product,openAlert}) => {
         </div>
        
         <h2 className="nunito-bold mt-3">{product.name}</h2>
-        <span className="text-green-600 nunito-standard">{product.shipping == 0 ? 'Envio Gratis' : `Envío $ ${product.shipping}`}</span>
-        {product.discount!=0 ? (
-          <span className="bg-green-500 nunito-standard rounded-3xl text-white px-2 ml-3">{`-${product.discount} %`}</span>
-        ) : <br/>}
-        <p className="nunito-standard">${product.price}</p>
+        <p className="nunito-standard text-2xl mt-2">${product.price}</p >
+        <p className="text-green-600 nunito-standard">{product.shipping == 0 ? 'Envio Gratis' : `Envío $ ${product.shipping}`}</p>
+        
         <button className="mt-3 rounded-3xl bg-zeo-three px-4 py-2 text-white nunito-bold" onClick={openAlert}>
           Comprar
         </button>
